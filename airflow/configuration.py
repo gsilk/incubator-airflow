@@ -35,7 +35,7 @@ import subprocess
 import sys
 import warnings
 
-from backports.configparser import ConfigParser
+from backports.configparser import RawConfigParser
 from zope.deprecation import deprecated as _deprecated
 
 from airflow.exceptions import AirflowConfigException
@@ -117,7 +117,7 @@ DEFAULT_CONFIG = _read_default_config_file('default_airflow.cfg')
 TEST_CONFIG = _read_default_config_file('default_test.cfg')
 
 
-class AirflowConfigParser(ConfigParser):
+class AirflowConfigParser(RawConfigParser):
 
     # These configuration elements can be fetched as the stdout of commands
     # following the "{section}__{name}__cmd" pattern, the idea behind this
